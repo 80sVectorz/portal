@@ -119,10 +119,14 @@ elif [ "$arg1" = "to" ]; then
 		echo "Entering portal..."
 	fi
 	pythonOut=$(python /bin/portal_bin/portalDB.py -R $2)
-	if [ $? -eq 1 ]; then
+	if [ $? -eq 2 ]; then
 		echo "Portal $2 does not exist."
 	else
-		cd ${pythonOut}
+		if [ $? -eq 2 ]; then
+			echo "Directory after portal $2 does not exist."
+		else
+			cd ${pythonOut}
+		fi
 	fi
 elif [ "$arg1" = "-c" ]; then
 	config_portal "$2"
