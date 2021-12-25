@@ -8,11 +8,9 @@ Then you use the portal make command (`portal -m portal_bin`) and now you can ea
 
 ## Instalation
 Portal should be installed in `/bin/portal_bin/` with all the repo files inside of `portal_bin` then make a symbolic link to `portal.sh` in the `/bin/` directory.
-Python3 must be installed.
+Python3 must be installed. For the last step add `portal( ) { source /bin/portal_bin/portal.sh "$@"; }` to your `.bashrc` file.
 ### Python modules used:
 * sys
 * os
 * pickle
-
-## A request.
-If anyone can help me make the PKGBUILD file that would be very much appreciated.
+* pathlib
