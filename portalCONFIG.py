@@ -1,15 +1,16 @@
 import os, sys, pickle
+from pathlib import Path
 
 config = {"flavor_messages": True}
 
-if not os.path.exists("/bin/portal_bin/config.pickle"):
-    pickle.dump(config,open("/bin/portal_bin/config.pickle","wb"))
+if not os.path.exists(str(Path.home())+"/.config/portal_config/config.pickle"):
+    pickle.dump(config,open(str(Path.home())+"/.config/portal_config/config.pickle","wb"))
 else:
-    config = pickle.load(open("/bin/portal_bin/config.pickle", "rb"))
+    config = pickle.load(open(str(Path.home())+"/.config/portal_config/config.pickle","rb"))
 
 if sys.argv[1] in config:
     config[sys.argv[1]] = not config[sys.argv[1]]
-    pickle.dump(config,open("/bin/portal_bin/config.pickle","wb"))
+    pickle.dump(config,open(str(Path.home())+"/.config/portal_config/config.pickle","wb"))
 elif sys.argv[1] == "-r" and len(sys.argv) == 2:
     for key in config:
         print(f"{key}: {config[key]}")
