@@ -13,3 +13,6 @@ Python3 must be installed.
 * sys
 * os
 * pickle
+
+## A request.
+If anyone can help me make the PKGBUILD file that would be very much appreciated.
