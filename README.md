@@ -6,4 +6,10 @@ Well I'll give an example. Let's say that you have multiple projects or your com
 With portal you can easily switch between directories. An easy example of the process would be the `/bin/portal_bin` directory. So you navigate there using `cd`.
 Then you use the portal make command (`portal -m portal_bin`) and now you can easily go there whenever you want using `portal to portal_bin`.
 
-
+## Instalation
+Portal should be installed in `/bin/portal_bin/` with all the repo files inside of `portal_bin` then make a symbolic link to `portal.sh` in the `/bin/` directory.
+Python3 must be installed.
+### Python modules used:
+* sys
+* os
+* pickle
