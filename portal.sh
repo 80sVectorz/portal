@@ -5,7 +5,7 @@ arg1="$(tr "[A-Z]" "[a-z]" <<< "$1")"
 function portal_help {
 	echo "Portal is an application that lets you easily go back to different directories in style."
 	echo "Ussage:"
-	echo "  portal to PORTAL_ALIAS | Is used to portal to a specific portal."
+	echo "  portal to PORTAL_ALIAS/OPTIONAL_SUB-DIRECTORY | Is used to portal to a specific portal."
 	echo "  portal -m/--make PORTAL_ALIAS | Is used to make a portal at that the current directory."
 	echo "  portal -o/--overwrite | Is used to overwrite an existing portal."
 	echo "  portal -r/--remove PORTAL_ALIAS | Is used to remove a portal."
