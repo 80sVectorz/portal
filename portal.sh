@@ -114,18 +114,23 @@ elif [ "$arg1" = "-r" ]; then
 elif [ "$arg1" = "--remove" ]; then
 	remove_portal "$2"
 elif [ "$arg1" = "to" ]; then
-	python /bin/portal_bin/portalCONFIG.py "-r" "flavor_messages"
-	if [ $? -eq 0 ]; then
-		echo "Entering portal..."
-	fi
-	pythonOut=$(python /bin/portal_bin/portalDB.py -R $2)
-	if [ $? -eq 2 ]; then
-		echo "Portal $2 does not exist."
+	if [ -z "$2" ]; then
+		echo "Failed to portal: missing arguments."
 	else
-		if [ $? -eq 2 ]; then
-			echo "Directory after portal $2 does not exist."
+		python /bin/portal_bin/portalCONFIG.py "-r" "flavor_messages"
+		if [ $? -eq 0 ]; then
+			echo "Entering portal..."
+		fi
+		pythonOut=$(python /bin/portal_bin/portalDB.py -R $2)
+		if [ $? -eq 1 ]; then
+			echo "Portal $2 does not exist."
 		else
-			cd ${pythonOut}
+			python /bin/portal_bin/portalDB.py "-R" "$2"
+			if [ $? -eq 2 ]; then
+				echo "Directory after portal $2 does not exist."
+			else
+				cd ${pythonOut}
+			fi
 		fi
 	fi
 elif [ "$arg1" = "-c" ]; then

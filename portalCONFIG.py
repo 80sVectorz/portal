@@ -3,6 +3,9 @@ from pathlib import Path
 
 config = {"flavor_messages": True}
 
+if not os.path.exists(str(Path.home())+"/.config/portal_config"):
+    os.mkdir(str(Path.home())+"/.config/portal_config")
+
 if not os.path.exists(str(Path.home())+"/.config/portal_config/config.pickle"):
     pickle.dump(config,open(str(Path.home())+"/.config/portal_config/config.pickle","wb"))
 else:
